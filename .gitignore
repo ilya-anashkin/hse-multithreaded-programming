@@ -41,7 +41,7 @@
 *.dwo
 
 # Build output
-hw2/bin/
+**/bin/
 
 # CMake build output
-hw2/build/
+**/build/
