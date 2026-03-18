@@ -233,6 +233,12 @@ ProducerNode::~ProducerNode() {
   }
 }
 
+bool ProducerNode::can_fit(std::size_t size) const {
+  auto* header = static_cast<const QueueHeader*>(header_);
+  const auto needed = align_up(kRecordHeaderSize + size, kAlignment);
+  return needed < header->capacity;
+}
+
 bool ProducerNode::push(std::uint16_t type, const void* data,
                         std::size_t size) {
   if (data == nullptr && size != 0) {

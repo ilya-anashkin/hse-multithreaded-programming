@@ -46,6 +46,11 @@ int main(int argc, char** argv) {
         return 1;
       }
 
+      if (!producer.can_fit(payload.size())) {
+        std::cerr << "message is too large for this queue\n";
+        continue;
+      }
+
       while (!g_stop && !producer.push(type, payload)) {
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
       }

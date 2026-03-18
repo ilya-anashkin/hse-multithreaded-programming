@@ -18,6 +18,7 @@ class ProducerNode {
   ProducerNode(std::string path, std::size_t queue_size);
   ~ProducerNode();
 
+  bool can_fit(std::size_t size) const;
   bool push(std::uint16_t type, const void* data, std::size_t size);
   bool push(std::uint16_t type, std::string_view text);
 
