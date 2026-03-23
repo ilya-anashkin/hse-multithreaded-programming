@@ -45,3 +45,6 @@
 
 # CMake build output
 **/build/
+
+# Visual Studio Code settings
+.vscode/
